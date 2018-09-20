@@ -12,14 +12,20 @@ class Node:
 
 
 class LinkedList:
-    def __init__(self, val: Any) -> None:  # noqa
-        self.first = Node(val)
+    def __init__(self, val: Optional[Any] = None) -> None:  # noqa
+        self.first = val
+
+    def isEmpty(self) -> bool:
+        return self.first is None
 
     def addLast(self, val: Any) -> None:
-        node = self.first
-        while node.next is not None:
-            node = node.next
-        node.next = Node(val)
+        if self.first is None:
+            self.first = Node(val)
+        else:
+            node = self.first
+            while node.next is not None:
+                node = node.next
+            node.next = Node(val)
 
     def addFirst(self, val) -> None:
         old_first = self.first
@@ -27,24 +33,33 @@ class LinkedList:
         self.first.next = old_first
 
     def contains(self, val) -> bool:
-        node = self.first
+        if self.first is None:
+            return False
+        else:
+            node = self.first
 
-        while node.next is not None:
-            if node.val == val:
-                return True
-            node = node.next
+            while node.next is not None:
+                if node.val == val:
+                    return True
+                node = node.next
 
         return False
 
     def pop(self) -> Any:
-        node = self.first
-        while node.next and node.next.next is not None:
-            node = node.next
-        node.next = None
-        return False
+        if self.first is None:
+            print("Cant pop from an empty list!")
+            return None
+        else:
+            node = self.first
+            while node.next and node.next.next is not None:
+                node = node.next
+            node.next = None
 
     def getFirst(self) -> Any:
-        return self.first.val
+        if self.first is not None:
+            return self.first.val
+        else:
+            return None
 
     def getLast(self):
         pass

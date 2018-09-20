@@ -1,4 +1,4 @@
-[ ] Linked List
+[ x ] Linked List
 [ ] Dynamic array, implemented with a ring buffer (use a statically sized array underneath the hood)
 [ ] Hash set
 [ ] Hash map (with chaining)
