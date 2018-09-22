@@ -23,6 +23,7 @@ class Queue:
             self.s1.append(self.s2.pop())
         return val
 
+
 class QueueTest(unittest.TestCase):
     def test_enqueue(self):
         queue = Queue()
@@ -33,8 +34,6 @@ class QueueTest(unittest.TestCase):
         self.assertEqual(val, 1, 'Not equal!')
         val = queue.dequeue()
         self.assertEquals(val, 2, 'Not equal!')
-
-
 
 
 if __name__ == '__main__':
