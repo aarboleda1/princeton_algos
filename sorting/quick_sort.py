@@ -26,7 +26,6 @@ def swap(arr: List[Any], i: int, j: int):  # noqa
 
 def partition(arr, low, high):
     i = (low - 1)  # index of smaller element
-    print(i)
     pivot = arr[high]  # pivot
 
     for j in range(low, high):
@@ -39,6 +38,8 @@ def partition(arr, low, high):
             i += 1
             arr[i], arr[j] = arr[j], arr[i]
 
+    # final and important step, we can place pivot
+    # in proper place in array
     arr[i + 1], arr[high] = arr[high], arr[i + 1]
     return (i + 1)
 
