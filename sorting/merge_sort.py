@@ -41,9 +41,6 @@ def merge_sort(alist):
     print("Merging ", alist)
 
 
-# alist = [54,26,93,17,77,31,44,55,20]
-
-
 class MergeSortTest(unittest.TestCase):
     def test_sort(self):
         arr = [8, 1, 2, 5, 0]
