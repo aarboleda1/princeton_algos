@@ -1,0 +1,7 @@
+9/26
+- Quicksort go over again. Still not certain in my implementation
+
+Using 3-way partitioning with quicksort is most effective when the input array has which of the following properties?
+
+Answer: a few distinct items
+The goal of 3-way partitioning is to speed up quicksort in the presence of duplicate keys.
