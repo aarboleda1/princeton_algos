@@ -42,6 +42,7 @@ class DynamicArray:
     def getSize(self) -> int:
         return len(self.list)
 
+
 class DynamicArrayTest(unittest.TestCase):
     def test_dynamic_array(self):
         size = 3
