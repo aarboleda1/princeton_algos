@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import unittest
 from typing import Any, List
 
@@ -5,7 +7,7 @@ from typing import Any, List
 class Queue:
 
     """Queue with stacks only"""
-    def __init__(self) -> None:  # noqa
+    def __init__(self) -> None:
         self.s1: List[Any] = []
         self.s2: List[Any] = []
 

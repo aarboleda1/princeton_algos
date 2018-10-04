@@ -5,7 +5,7 @@ from typing import Any, Optional
 
 
 class Node:
-    def __init__(self, val: Any, next: Optional[Any] = None) -> None:  # noqa
+    def __init__(self, val: Any, next: Optional[Any] = None) -> None:
         self.val = val
         self.next = next
 
@@ -14,7 +14,7 @@ class Node:
 
 
 class LinkedList:
-    def __init__(self, val: Optional[Any] = None) -> None:  # noqa
+    def __init__(self, val: Optional[Any] = None) -> None:
         self.first = val
 
     def isEmpty(self) -> bool:

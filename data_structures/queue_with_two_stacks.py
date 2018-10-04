@@ -1,7 +1,9 @@
+#!/usr/bin/python3
 from typing import Any, List
 
+
 class Queue:
-    def __init__(self) -> None:  # noqa
+    def __init__(self) -> None:
         self.s1 = List[Any]
         self.s2 = List[Any]
 

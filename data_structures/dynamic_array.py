@@ -9,7 +9,7 @@ class DynamicArray:
     (use a statically sized array underneath the hood)
     """
 
-    def __init__(self, size) -> None:  # noqa
+    def __init__(self, size: int) -> None:
         self.size = size
         self.ptr = 0
         self.list: List[Any] = [None] * self.size
