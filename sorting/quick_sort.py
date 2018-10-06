@@ -1,9 +1,8 @@
 from typing import Any, List
+
 """Quicksort
 
 Not stable by default
-
-
 """
 
 
