@@ -21,6 +21,18 @@ expected number of key–value pairs to reinsert will be a small constant.
 An alternative is to flag the deleted linear-probing table entry so that it is
 skipped over during a search but is used for an insertion. If there are too many
 flagged entries, create a new hash table and rehash all key–value pairs.
+
+Separate Chaining:
+- Easier to implement delete
+- Performance degrades
+- Clustering less sensitive to poorly designed hash function (it's ok if the
+hash function puts values in the same index because each array index is a linked
+list)
+vs.
+
+Linear Probing:
+- Less wasted space
+- Better cache performance
 """
 
 
