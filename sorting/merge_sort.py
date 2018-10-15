@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+from typing import List
 import unittest
 """Divide and Conquer Paradigm:
 
@@ -50,7 +50,7 @@ def merge_sort(alist):
     print("Merging ", alist)
 
 
-def _merge_sort(alist):
+def _merge_sort(alist: List[int]) -> List[int]:
     if len(alist) > 1:
         mid = len(alist) // 2
         left = alist[:mid]
@@ -59,7 +59,40 @@ def _merge_sort(alist):
     return alist
 
 
-def _merge(left, right):
+def __merge_sort(arr: List[int]) -> List[int]:
+    if len(arr) > 1:
+        mid = len(arr) // 2
+        left = arr[:mid]
+        right = arr[mid:]
+        return __merge(__merge_sort(left), __merge_sort(right))
+    return arr
+
+
+def __merge(left: List[int], right: List[int]) -> List[int]:
+    res = []
+    i = 0
+    j = 0
+
+    while i < len(left) and j < len(right):
+        if left[i] < right[j]:
+            res.append(left[i])
+            i += 1
+        else:
+            res.append(right[j])
+            j += 1
+
+    while i < len(left):
+        res.append(left[i])
+        i += 1
+
+    while j < len(right):
+        res.append(right[i])
+        j += 1
+
+    return res
+
+
+def _merge(left: List[int], right: List[int]) -> List[int]:
     res = []
     left_idx, right_idx = 0, 0
     while left_idx < len(left) and right_idx < len(right):
@@ -87,11 +120,15 @@ class MergeSortTest(unittest.TestCase):
         sorted = merge_sort(arr)
         self.assertListEqual(sorted, [0, 1, 2, 5, 8], 'Incorrect!')
 
-    def test_other_way_sort(self):
-        arr = [8, 1, 2, 5, 0]
-        sorted = _merge_sort(arr)
-        self.assertListEqual(sorted, [0, 1, 2, 5, 8], 'Incorrect!')
+    # def test_other_way_sort(self):
+    #     arr = [8, 1, 2, 5, 0]
+    #     sorted = _merge_sort(arr)
+    #     self.assertListEqual(sorted, [0, 1, 2, 5, 8], 'Incorrect!')
 
+    def test_one_other_way_sort(self):
+        arr = [8, 1, 2, 5, 0]
+        sorted = __merge_sort(arr)
+        self.assertListEqual(sorted, [0, 1, 2, 5, 8], 'Incorrect!')
 
 if __name__ == '__main__':
     unittest.main()

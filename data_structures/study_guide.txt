@@ -13,9 +13,9 @@
 [ x ] Randomized quicksort (pay extra attention to the partition subroutine, as it’s useful in a lot of places)
 [ x ] Mergesort
 [ x ] Breadth-first search in a graph
-[ ] Depth-first search in a graph (augment it to detect cycles)
+[ x ] Depth-first search in a graph (augment it to detect cycles)
 [ ] Tree traversals (pre-order, in-order, post-order)
-[ ] Topological sort (using Tarjan’s algorithm)
+[ x ] Topological sort (using Tarjan’s algorithm)
 [ ] Dijkstra’s algorithm (without decrease-key)
 [ ] Longest common subsequence (using dynamic programming with matrices)
 [ ] Knapsack problem (also dynamic programming)
