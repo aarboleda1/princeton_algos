@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 
 import unittest
-from typing import Any, DefaultDict, Dict, List
+from typing import Any, DefaultDict, List
 from collections import defaultdict
-
 """Course Notes:
 
 10/8
@@ -22,9 +21,9 @@ Design Pattern
 
 To get a path from node s to v, use a stack
 
-You can do this by using an edge_to array. When doing a DFS, have the source_edge
-be an index in the array and have the edge_to be the value in that index of
-the array
+You can do this by using an edge_to array. When doing a DFS, have the
+source_edge be an index in the array and have the edge_to be the value
+in that index of the array
 
 for (let x = vertex; x != source_edge; x = edge_to[vertex]) {
     path.push(x)
@@ -60,6 +59,7 @@ Longest Path in a DAG
 Topological Sorting
 
 """
+
 
 # Undirected
 class Graph:
@@ -97,35 +97,35 @@ class Graph:
 
         return 0
 
-    # TODO
     def detect_cycles(self, s: Any) -> bool:
         """Use DFS"""
-        recursive_arr: Dict[str, List[Any]] = {}
+        recursive_arr: List[bool] = []
         visited: List[bool] = []
         for v in self.graph:
-            if self.detect_cycles_util(v, visited, recursive_arr):
-                return True
-
-
+            if self.detect_cycles_util(v, visited, recursive_arr) is False:
+                return False
         return True
 
-    def detect_cycles_util(self, node: int, visited: List[bool], recursive_arr: List[Any]) -> bool:
-        """DFS, if you go d
+    def detect_cycles_util(self, v: str, visited: List[bool],
+                           recursive_arr: List[bool]) -> bool:
+        """Use a recursion_arr to keep track of the current call stack
         """
-        visited[node] = True
-        recursive_arr[node] = True
-        # TODO
+        visited[int(v)] = True
+        recursive_arr[int(v)] = True
+        for neighbor in self.graph[v]:
+            if neighbor not in visited:
+                if self.detect_cycles_util(neighbor, visited, recursive_arr):
+                    return True
+            elif visited[neighbor] and recursive_arr[neighbor]:
+                return True
+        recursive_arr[int(v)] = False
+        return False
+
+    def detect_cycles_undirected(self, s: Any) -> bool:
+        return False
+
+    def detect_cycles_undirected_util(self) -> bool:
         return True
-
-
-
-
-
-
-
-
-
-
 
     def shortest_path(self, startId: int) -> List[int]:
         distances: List[int] = [-1] * len(self.graph)
@@ -160,8 +160,8 @@ class Graph:
         edge_to: List[Any] = []
         self.DFSUtil(discovered, v, edge_to)
 
-
-    def DFSUtil(self, discovered: List[bool], v: int, edge_to: List[Any]) -> None:
+    def DFSUtil(self, discovered: List[bool], v: int,
+                edge_to: List[Any]) -> None:
         discovered[v] = True
 
         for neighbor in self.graph[str(v)]:
@@ -169,7 +169,6 @@ class Graph:
                 print(f"visiting {neighbor}")
                 self.DFS(neighbor)
                 edge_to[neighbor] = v
-
 
 
 class GraphTest(unittest.TestCase):
@@ -182,27 +181,69 @@ class GraphTest(unittest.TestCase):
         g.add_edge(2, 3)
         g.add_edge(3, 3)
 
-        print ("Following is Breadth First Traversal"
-                          " (starting from vertex 2)")
+        print("Following is Breadth First Traversal"
+              " (starting from vertex 2)")
         g.BFS(2)
-        g.DFS(2)
+
 
 class ConnectedComponent:
-    def __init__(self, graph: Graph) -> None:
-        self.visited = List[str]
-        self.graph = graph
+    """Returns a ConnectedComponent and strongly connected component of graph
+    """
 
-    def construct_cc(self, graph: Graph) -> None:
+    def __init__(self, graph: Graph) -> None:
+        self.visited: List[bool] = []
+        self.graph = graph
+        self.count = 0
+        # indexs are the vertices, values at indesx are the
+        # id of the connected component they are apart of
+        self.cc_ids: List[int] = []
+
+    def cc(self, graph: Graph) -> None:
         # v is the vertice
         for v, _ in self.graph.graph.items():
-            if v not in self.visited:   # noqa
-                self.visited[v] = True  # noqa
-                self.DFS(any)
+            if v not in self.visited:
+                self.DFS(int(v))
+                self.count += 1
 
-    def DFS(self, v: Any) -> None:
+    def strongly_cc(self, graph: Graph) -> None:
+        """Kosaraju-Sharir Strongly Connected Component
+        """
+        # Get the reverse post orderof the graph
+        reverse_post_order = self.get_reverse_post_order()
+        for v in reverse_post_order:
+            if v not in self.visited:
+                self.DFS(int(v))
+                self.count += 1
 
-        pass
+    def DFS(self, v: int) -> None:
+        self.visited[v] = True
+        self.cc_ids[v] = self.count
+        for neighbor in self.graph.graph:
+            if neighbor not in self.visited:
+                self.DFS(int(neighbor))
 
+    def get_reverse_post_order(self) -> List[int]:
+        """Should return the reverse post order of the graph
+        """
+        ordering_arr: List[int] = []
+        visited: List[bool] = []
+        for v in self.graph.graph:
+            if int(v) not in visited:
+                self.get_reverse_post_order_util(int(v), visited, ordering_arr)
+        return ordering_arr
+
+    def get_reverse_post_order_util(
+        self, v: int,
+        visited: List[bool],
+        ordering_arr: List[int]
+    ) -> None:
+        visited[v] = True
+        for neighbor in self.graph.graph[str(v)]:
+            if neighbor not in visited:
+                self.get_reverse_post_order_util(
+                    neighbor, visited, ordering_arr
+                )
+        ordering_arr.append(int(v))
 
 
 if __name__ == '__main__':
