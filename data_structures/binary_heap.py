@@ -9,7 +9,6 @@ Key concepts:
 - Height is always Log ^ 2 of N nodes in binary tree
 - For a Max Binary heap:
     - Every element must be larger than its two children
-
 """
 
 
@@ -40,6 +39,11 @@ class MaxBinaryHeap:
         return val
 
     def get_min_child(self, idx: int) -> int:
+        """Compares two indices which are also children of a node in a
+        binary heap.
+
+        Returns index of the lesser
+        """
         if self.arr[idx * 2] < self.arr[idx * 2 + 1]:
             return idx * 2
         else:

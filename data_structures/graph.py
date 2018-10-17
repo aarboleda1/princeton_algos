@@ -246,5 +246,26 @@ class ConnectedComponent:
         ordering_arr.append(int(v))
 
 
+class Edge:
+    """An abstraction to edges for a graph"""
+    def __init__(self, v: int, w: int, weight: int) -> None:
+        self.v = v
+        self.w = w
+        self.weight = weight
+
+    def either(self) -> int:
+        return self.v
+
+    def other(self, vertex: int) -> int:
+        return self.v if vertex == self.w else self.v
+
+    def compare_to(self, edge: Any) -> int: # edge should be self referencing
+        if self.weight < edge.weight:
+            return -1
+        elif self.weight > edge.weight:
+            return 1
+        else:
+            return 0
+
 if __name__ == '__main__':
     unittest.main()

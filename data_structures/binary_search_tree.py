@@ -115,7 +115,7 @@ class BST:
                 return node.right
 
             # recurse
-            node.right = self.del_min(node.right)
+            node.right = self.del_max(node.right)
             node.count = 1 + self.size(node.left) + self.size(node.right)
             return node
 
