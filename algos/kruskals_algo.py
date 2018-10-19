@@ -33,8 +33,8 @@ class KruskalMST:
             edge = priority_queue.delete_min()
 
             # get the two edges
-            v = edge.either() # noqa
-            w = edge.other(v) # noqa
+            v = edge.either()  # noqa
+            w = edge.other(v)  # noqa
 
             # If they are not connected, join them and add edge to mst
             if uf.connected(v, w) is False:
