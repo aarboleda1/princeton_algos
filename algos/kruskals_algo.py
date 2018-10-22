@@ -53,6 +53,10 @@ class EdgeWeightedGraph:
     def num_vertices(self) -> int:
         return 0
 
+    def adjacent(self, v: int) -> List[int]:
+        """Get neighbors for a vertex"""
+        return []
+
 
 class PriorityQueue:
     def __init__(self) -> None:

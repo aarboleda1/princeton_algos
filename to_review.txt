@@ -5,3 +5,7 @@ Using 3-way partitioning with quicksort is most effective when the input array h
 
 Answer: a few distinct items
 The goal of 3-way partitioning is to speed up quicksort in the presence of duplicate keys.
+
+BotttleWeight MST: 10/20
+  - Not really sure of implementation
+  - https://www.coursera.org/learn/algorithms-part2/quiz/CQidl/interview-questions-minimum-spanning-trees-ungraded
