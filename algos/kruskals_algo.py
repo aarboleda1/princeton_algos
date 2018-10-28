@@ -7,9 +7,9 @@ https://www.hackerearth.com/blog/algorithms/kruskals-minimum-spanning-tree-algor
 
 Steps:
 1. sort the graph edges w/ respect to their weights
-2. Iterate thru the sorted edges and add the result IF and ONLY IF they do not result in a cycle
-If both edges do not belong tot eh same disjoint set, then add it to result
-
+2. Iterate thru the sorted edges and add the result IF and ONLY IF they do not
+result in a cycle
+If both edges do not belong to the same disjoint set, then add it to result
 """
 
 
