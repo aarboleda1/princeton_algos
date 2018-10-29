@@ -2,9 +2,30 @@
 
 """
 https://hackernoon.com/bst-sequences-in-python-c072c0e9b19f
+https://stackoverflow.com/questions/21211701/given-a-bst-and-its-root-print-all-sequences-of-nodes-which-give-rise-to-the-sa/24398114#24398114
+http://www.yujinc.com/4-9-bst-sequences-cci/
+The main idea for generating sequence is that root must come before all its children.
+
+
+1. Create a function allSequences which generates all possible lists
+ - Base case where root is null, return [[]]
+ - Otherwise, recurisvely call allSequences and get the left and right sequences of
+ left and right subtree
+2. weaveLists Function
+e.g.
+    arr1: [1, 2, 3]
+    arr2: [4, 5, 6]
+
+    Think of the sub problems
+    - Prepend a 1 to all weaves of [2, 3] and [4, 5, 6]
+    - Prepend a 4 to all weaves of [1, 2, 3] and [5, 6]
+When arr1 or arr2 are empty, add the remainder to prefix arr and store result
+
 """
 from typing import List, Any, Optional
 import copy
+import pprint
+import unittest
 
 
 class Node:
@@ -31,7 +52,6 @@ def allSequences(node: Optional[Node]) -> List[Any]:
     # then represent the left and right subtrees
     leftSeq = allSequences(node.left)
     rightSeq = allSequences(node.right)
-
     # nested for loop and call weaveLists on each list in
     # leftSeq and rightSeq, which are list of lists
     # and each represents results of each subtree
@@ -53,14 +73,6 @@ def weaveLists(first, second, results, prefix):
     if not first or not second:
         # ensuring that result is a CLONE and not a reference to prefix
         result = copy.deepcopy(prefix)
-        # add result to first or/ and second lists
-        if first:
-            result += first
-        if second:
-            result += second
-        # append the weaved list which is result, to results
-        results.append(result)
-        return
         # add result to first or/ and second lists
         if first:
             result += first
@@ -108,7 +120,7 @@ class Tree:
 
     def _insert(self, val, node):
         if val < node.val:
-            if node.left != None:
+            if node.left is not None:
                 self._insert(val, node.left)
             else:
                 node.left = Node(val)
@@ -122,11 +134,12 @@ class Tree:
 if __name__ == "__main__":
     tree = Tree()
 
-    tree.insert(20)
-    tree.insert(10)
-    tree.insert(25)
+    tree.insert(4)
+    tree.insert(1)
+    tree.insert(2)
     tree.insert(5)
-    tree.insert(15)
+    tree.insert(3)
+    tree.insert(6)
     allSeq = allSequences(tree.getRoot())
     for each in allSeq:
         print(each)
