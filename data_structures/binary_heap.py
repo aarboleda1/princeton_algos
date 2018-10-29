@@ -6,7 +6,13 @@ import math
 
 """Constructs a Binary Heap
 Key concepts:
-- Height is always Log ^ 2 of N nodes in binary tree
+- Height of complete tree with N nodes is [log N]
+    - Height only increases when N is a power of 2
+- Largest Key is a[1], which is the root of binary tree
+
+- Parent of node at k is at k/2
+- Children of node at k are at 2k and 2k + 1
+
 - For a Max Binary heap:
     - Every element must be larger than its two children
 """

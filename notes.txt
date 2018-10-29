@@ -1,0 +1,13 @@
+System Architecture Study Guide and Notes
+
+In-memory database
+
+- In memory database relies on main memory for computer data storage. The contrast
+to this is a database management system that uses disk storage for storage
+-  In memory db's are faster than disk-optimized storage because disk access is slower
+than memory access
+- A cache miss is when data is fetched, but the request is not in the response.
+Therefore, the request has to go to the disk storage layer to retrieve the data
+
+
+https://aws.amazon.com/caching/
