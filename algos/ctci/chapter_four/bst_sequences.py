@@ -48,8 +48,10 @@ def allSequences(node: Optional[Node]) -> List[Any]:
     prefix.append(node.val)
 
     # then represent the left and right subtrees
-    leftSeq = allSequences(node.left)
-    rightSeq = allSequences(node.right)
+    # leftSeq = allSequences(node.left)
+    # rightSeq = allSequences(node.right)
+    leftSeq = [getSequences(node.left)]
+    rightSeq = [getSequences(node.right)]
     # nested for loop and call weaveLists on each list in
     # leftSeq and rightSeq, which are list of lists
     # and each represents results of each subtree
@@ -64,6 +66,19 @@ def allSequences(node: Optional[Node]) -> List[Any]:
             # results list of lists
             results += weaved
     return results
+
+
+def getSequences(node: Optional[Node]) -> List[int]:
+    """Get sequences of an array, must use in-order DFS to preserve proper
+    ordering
+    """
+    if node is None:
+        return []
+
+    left = getSequences(node.left)
+    left.append(node.val) # noqa
+    left += getSequences(node.right)
+    return left
 
 
 def weaveLists(first, second, results, prefix):
@@ -139,7 +154,7 @@ if __name__ == "__main__":
     tree.insert(3)
     tree.insert(6)
     allSeq = allSequences(tree.getRoot())
-    print(allSeq)
+    print(len(allSeq))
     # for each in allSeq:
         # print(each)
     # print(len(allSeq))
