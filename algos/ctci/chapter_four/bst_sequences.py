@@ -24,8 +24,6 @@ When arr1 or arr2 are empty, add the remainder to prefix arr and store result
 """
 from typing import List, Any, Optional
 import copy
-import pprint
-import unittest
 
 
 class Node:
@@ -125,7 +123,7 @@ class Tree:
             else:
                 node.left = Node(val)
         else:
-            if node.right != None:
+            if node.right is not None:
                 self._insert(val, node.right)
             else:
                 node.right = Node(val)
@@ -141,6 +139,7 @@ if __name__ == "__main__":
     tree.insert(3)
     tree.insert(6)
     allSeq = allSequences(tree.getRoot())
-    for each in allSeq:
-        print(each)
-    print(len(allSeq))
+    print(allSeq)
+    # for each in allSeq:
+        # print(each)
+    # print(len(allSeq))
