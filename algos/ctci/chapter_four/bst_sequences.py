@@ -25,13 +25,36 @@ When arr1 or arr2 are empty, add the remainder to prefix arr and store result
 from typing import List, Any, Optional
 import copy
 
-
 class Node:
     def __init__(self, val: Optional[int] = None) -> None:
         self.left = None
         self.right = None
         self.val = val
 
+class Tree:
+    def __init__(self):
+        self.rightoot = None
+
+    def getRoot(self):
+        return self.rightoot
+
+    def insert(self, val):
+        if self.rightoot is None:
+            self.rightoot = Node(val)
+        else:
+            self._insert(val, self.rightoot)
+
+    def _insert(self, val, node):
+        if val < node.val:
+            if node.left is not None:
+                self._insert(val, node.left)
+            else:
+                node.left = Node(val)
+        else:
+            if node.right is not None:
+                self._insert(val, node.right)
+            else:
+                node.right = Node(val)
 
 def allSequences(node: Optional[Node]) -> List[Any]:
     # this is the final list of lists we want to output
@@ -117,31 +140,6 @@ def weaveLists(first, second, results, prefix):
     del prefix[-1]
     second.insert(0, headSecond)
 
-
-class Tree:
-    def __init__(self):
-        self.rightoot = None
-
-    def getRoot(self):
-        return self.rightoot
-
-    def insert(self, val):
-        if self.rightoot is None:
-            self.rightoot = Node(val)
-        else:
-            self._insert(val, self.rightoot)
-
-    def _insert(self, val, node):
-        if val < node.val:
-            if node.left is not None:
-                self._insert(val, node.left)
-            else:
-                node.left = Node(val)
-        else:
-            if node.right is not None:
-                self._insert(val, node.right)
-            else:
-                node.right = Node(val)
 
 
 if __name__ == "__main__":
