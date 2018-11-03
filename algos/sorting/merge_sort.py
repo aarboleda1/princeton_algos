@@ -3,7 +3,7 @@ from typing import List
 import unittest
 """Divide and Conquer Paradigm:
 
-steps
+Steps
 - Divide array into 2 halves and then merge sorted halves
 
 Stable: Yes

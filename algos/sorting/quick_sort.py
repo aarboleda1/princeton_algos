@@ -23,10 +23,12 @@ compared to merge sort
 - *Duplicates:
 """
 
+
 def swap(arr: List[Any], i: int, j: int) -> None:
     val = arr[i]
     arr[i] = arr[j]
     arr[j] = val
+
 
 def quick_sort_randomized(alist: List[int], lo: int, hi: int) -> List[int]:
     """Generates Random Pivot, swaps pivot with
@@ -37,6 +39,7 @@ def quick_sort_randomized(alist: List[int], lo: int, hi: int) -> List[int]:
         quick_sort_randomized(alist, lo, random_partition - 1)
         quick_sort_randomized(alist, random_partition + 1, hi)
     return alist
+
 
 def partition_random(alist: List[int], lo: int, hi: int) -> int:
     rand_idx = random.randint(lo, hi)
@@ -50,6 +53,7 @@ def quick_sort(arr: List[int], lo: int, hi: int) -> List[int]:  # noqa
         quick_sort(arr, lo, j - 1)
         quick_sort(arr, j + 1, hi)
     return arr
+
 
 # Notice low - 1 and i + 1, This is done for list index so that index
 # does not go out of bounds
@@ -75,8 +79,9 @@ def partition(arr: List[Any], lo: int, hi: int) -> int:
     swap(arr, lo, j)
     return j
 
+
 def _partition(arr, low, high):
-    i = (low - 1)  # index of smaller element
+    i = low - 1  # index of smaller element
     pivot = arr[high]  # pivot
 
     for j in range(low, high):
@@ -92,31 +97,29 @@ def _partition(arr, low, high):
     # final and important step, we can place pivot
     # in proper place in array
     arr[i + 1], arr[high] = arr[high], arr[i + 1]
-    return (i + 1)
+    return i + 1
 
 
 a = quick_sort([8, 2, 1, 0, 9], 0, 4)
 print(a)
 
 
-
-
 class QuickSortTest(unittest.TestCase):
     def test_sort(self):
         arr = [8, 1, 2, 5, 0]
         sorted = quick_sort(arr, 0, len(arr) - 1)
-        self.assertListEqual(sorted, [0, 1, 2, 5, 8], 'Incorrect!')
-
+        self.assertListEqual(sorted, [0, 1, 2, 5, 8], "Incorrect!")
 
     def test_one_other_way_sort(self):
         arr = [8, 1, 2, 5, 0]
         sorted = quick_sort(arr, 0, len(arr) - 1)
-        self.assertListEqual(sorted, [0, 1, 2, 5, 8], 'Incorrect!')
+        self.assertListEqual(sorted, [0, 1, 2, 5, 8], "Incorrect!")
 
     def test_one_other_way_sort_(self):
         arr = [8, 1, 2, 5, 0]
         sorted = quick_sort_randomized(arr, 0, len(arr) - 1)
-        self.assertListEqual(sorted, [0, 1, 2, 5, 8], 'Incorrect!')
+        self.assertListEqual(sorted, [0, 1, 2, 5, 8], "Incorrect!")
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()
