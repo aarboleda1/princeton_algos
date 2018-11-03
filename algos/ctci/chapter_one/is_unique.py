@@ -4,6 +4,9 @@
 1.1 Implement an algorithm to dete3rmine if a string is unique. What if you
 cannot use any additional data structures?
 
+Questions to ask first: Are the characters ASCII or is it a unicode string
+https://stackoverflow.com/questions/19212306/whats-the-difference-between-ascii-and-unicode
+
 Solutions
 1. Sort string using quick_sort, it's stable and and in place
 """

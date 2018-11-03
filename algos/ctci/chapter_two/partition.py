@@ -4,7 +4,6 @@ import unittest
 
 
 class Node:
-
     def __init__(self, data, prev, next):
         self.data = data
         self.prev = prev
@@ -36,7 +35,8 @@ class DoubleList:
                     current_node.prev.next = current_node.next
                     current_node.next.prev = current_node.prev
                 else:
-                    # otherwise we have no prev (it's None), head is the next one, and prev becomes None
+                    # otherwise we have no prev (it's None), head is the next
+                    # one, and prev becomes None
                     self.head = current_node.next
                     current_node.next.prev = None
 
