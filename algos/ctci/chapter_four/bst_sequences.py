@@ -4,13 +4,14 @@
 https://hackernoon.com/bst-sequences-in-python-c072c0e9b19f
 https://stackoverflow.com/questions/21211701/given-a-bst-and-its-root-print-all-sequences-of-nodes-which-give-rise-to-the-sa/24398114#24398114
 http://www.yujinc.com/4-9-bst-sequences-cci/
-The main idea for generating sequence is that root must come before all its children.
+The main idea for generating sequence is that root must come before all its
+children.
 
 
 1. Create a function allSequences which generates all possible lists
  - Base case where root is null, return [[]]
- - Otherwise, recurisvely call allSequences and get the left and right sequences of
- left and right subtree
+ - Otherwise, recurisvely call allSequences and get the left and right sequences
+ of left and right subtree
 2. weaveLists Function
 e.g.
     arr1: [1, 2, 3]
@@ -99,9 +100,8 @@ def getSequences(node: Optional[Node]) -> List[int]:
         return []
 
     left = getSequences(node.left)
-    left.append(node.val) # noqa
-    left += getSequences(node.right)
-    return left
+    right = getSequences(node.right)
+    return left + [node.val] + right  # noqa
 
 
 def weaveLists(first, second, results, prefix):
@@ -152,7 +152,5 @@ if __name__ == "__main__":
     tree.insert(3)
     tree.insert(6)
     allSeq = allSequences(tree.getRoot())
-    print(len(allSeq))
-    # for each in allSeq:
-        # print(each)
-    # print(len(allSeq))
+    for each in allSeq:
+        print(each)
