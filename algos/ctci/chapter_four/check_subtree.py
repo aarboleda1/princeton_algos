@@ -118,5 +118,5 @@ def trees_match(r1: Node, r2: Node) -> bool:
     elif r1.val != r2.val:
         return False
     else:
-        ## both sides need to match
+        # both sides need to match
         return trees_match(r1.left, r2.left) and trees_match(r1.right, r2.right)  # noqa
