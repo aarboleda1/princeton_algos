@@ -20,7 +20,9 @@ true length (i), and one at final length (j).
 space. otherwise add %20 to array
 
 """
+
 import unittest
+
 
 def urlify(s, true_length):
     new_index = len(s)
