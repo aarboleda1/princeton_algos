@@ -1,3 +1,5 @@
+import unittest
+
 """Write a method to replac eall spaces in a string with `%20`. you may assume
 that the string has sufficient space at the end to hold the additional
 characters, and that you are given the "true" length of the string.
@@ -21,7 +23,7 @@ space. otherwise add %20 to array
 
 """
 
-import unittest
+
 
 
 def urlify(s, true_length):
@@ -49,9 +51,8 @@ class Test(unittest.TestCase):
     def test_urlify(self):
         for [test_string, length, expected] in self.data:
             actual = urlify(test_string, length)
-            # my_actual = _urlify(test_string, length)
             self.assertEqual(actual, expected)
-            # self.assertEqual(my_actual, expected)
+
 
 if __name__ == "__main__":
     unittest.main()
