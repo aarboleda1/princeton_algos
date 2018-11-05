@@ -12,3 +12,11 @@ BotttleWeight MST: 10/20
 
 
 http://bigocheatsheet.com/
+
+
+# CTCI - Needs Review
+- Chapter4 Check Subtrees 4.10
+
+# CTCI - Good. Review on a weekly Basis
+- BST Sequences
+- Check balanced
