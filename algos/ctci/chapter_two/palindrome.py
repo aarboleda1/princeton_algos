@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 """Implement a function to check if a linked list is a palindrome
 
 Solution 1:
@@ -21,3 +19,19 @@ linked list, we can return at the first place where they match
 3. With the longer linked list, advance its pointer by the difference in lengths
 4. Iterate thru both lists and when you find a node intersects
 """
+
+class Node:
+    pass
+
+
+def reverse_linked_list_clone(node):
+    head = None
+    while node is not None:
+        n = Node(node.val)  # clone
+        # Each node we insert into the linked list will either point to
+        # None (if it is the first) or the last node we just created
+        n.next = head
+        # magic step hurr, by assigning to n, we're saving it for next iteration
+        head = n
+        node = node.next
+    return head

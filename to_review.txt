@@ -15,11 +15,15 @@ http://bigocheatsheet.com/
 
 
 # CTCI - Needs Review
-- 11/5 Chapter 4 Check Subtrees 4.10
-- 11/5 Palindrome (LinkedList) 2.6
-- 11/5 Intersection (LinkedList) 2.7
+- firstUniqueChar Leetcode
+- Ch 4 CTCI First Common Ancestor
 
 
 # CTCI - Good. Review on a weekly Basis
+- 11/9 Unique Email Addresses https://leetcode.com/problems/unique-email-addresses/
+- 11/9 Find Anagram Mappings https://leetcode.com/problems/find-anagram-mappings/
+- 11/5 Chapter 4 Check Subtrees 4.10
 - BST Sequences
 - Check balanced
+- 11/5 Palindrome (LinkedList) 2.6
+- 11/5 Intersection (LinkedList) 2.7
