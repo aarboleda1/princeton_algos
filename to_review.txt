@@ -13,10 +13,14 @@ BotttleWeight MST: 10/20
 
 http://bigocheatsheet.com/
 
-
+Google Interview:
+- Iterator of Iterators
+- Trie
+-
 # CTCI - Needs Review
 - firstUniqueChar Leetcode
 - Ch 4 CTCI First Common Ancestor
+- Iterator of Iterators!!! This is a good one
 
 
 # CTCI - Good. Review on a weekly Basis

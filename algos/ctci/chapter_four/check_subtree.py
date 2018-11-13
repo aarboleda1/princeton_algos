@@ -12,6 +12,18 @@ subtree of n is identical to T2. That is, if you cut off the tree at node n,
 the two trees would be identical. Hints: #4, #7 7, #78, #37, #37
 """
 
+
+
+
+
+
+
+
+
+
+
+
+
 """
 Initial algorithm
 - DFS thru T1, If you find a Tnode that is == to T2.root, then do a dfs both,

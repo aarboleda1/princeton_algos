@@ -3,20 +3,38 @@
 from typing import List, Any, Optional
 import copy
 import unittest
+
 """
 You are given a binary tree in which each node contains an integer
 value. Design an algorithm to count the number of paths that sum to a given
 value. The path does not need to start at the root or at a leaf, but it must
 go downwards.
+"""
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"""
 
 Brute Force: Traverse thru tree. For each node traverse "look" for a potential
 Should work, but the time complexity is O(N Log N) for a balanced tree and
 will be O(N^2) for an unbalanced binary tree
 
-Optimized: There is a lot of repeated work here. We're looking at subpaths of the
-tree. Basically the same as contiguous subsequences problem where there are 2
-ways you can find a new path
+Optimized: There is a lot of repeated work here. We're looking at subpaths of
+the tree. Basically the same as contiguous subsequences problem where there are
+2 ways you can find a new path
 1. if the running sum is == target
 i.e. [3, 2, -1] and target is 4 or
 2. if we have [8, 2, 1, -1, 2] where it's the subsequence is [2, 1, -1, 2]

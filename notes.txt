@@ -11,3 +11,16 @@ Therefore, the request has to go to the disk storage layer to retrieve the data
 
 
 https://aws.amazon.com/caching/
+
+
+11/12 Backtracking
+- What is backtracking?
+  A systematic way to iterate through all possible configurations of a search
+  space. These configurations may represent all possible arrangements of objects
+  (or permutations)
+
+  Other situations include ALL paths between 2 vertices, ALL possible ways to
+  partition 2 vertices
+
+- Backtracking ensures correctness by enumerating all possibilities.
+It ensures efficiency by never visiting a state more than once.

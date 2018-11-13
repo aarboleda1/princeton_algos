@@ -23,6 +23,8 @@ A. Iterate thru array. For each number mark nums[nums[i] - 1] to be negative
 B. Then iterate thru array, if you see a number larger than 0, append whatever
 index it is at to result array
 """
+
+
 from typing import List
 import unittest
 

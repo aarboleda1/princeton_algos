@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
 
 """
-1.1 Implement an algorithm to dete3rmine if a string is unique. What if you
+1.1 Implement an algorithm to determine if a string is unique. What if you
 cannot use any additional data structures?
+
+
+
+
 
 Questions to ask first: Are the characters ASCII or is it a unicode string
 https://stackoverflow.com/questions/19212306/whats-the-difference-between-ascii-and-unicode

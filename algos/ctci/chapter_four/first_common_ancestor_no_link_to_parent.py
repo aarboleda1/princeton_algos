@@ -6,6 +6,28 @@ nodes in a data structure. NOTE: This is not necessarily a binary tree
 Case where we do not have links to parent
 """
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 """In this case we can check traverse down the tree where p and q are on the
 same side.
 
