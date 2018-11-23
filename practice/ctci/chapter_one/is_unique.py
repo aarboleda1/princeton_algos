@@ -8,6 +8,8 @@ cannot use any additional data structures?
 
 
 
+
+
 Questions to ask first: Are the characters ASCII or is it a unicode string
 https://stackoverflow.com/questions/19212306/whats-the-difference-between-ascii-and-unicode
 

@@ -1,0 +1,27 @@
+Backtracking Notes Algorithm Design Manual
+
+Common themes
+- Generating each possible configuration exactly once
+- We must define a systematic generation order
+- Each step of the backtracking algorithm, try and extend a given partial
+solution
+- After extending, we must test whether what we now have is a solution: if so,
+print it or count it. If not, check whether the partial solution is potentially
+extendible to some complete solution
+- Basically a DFS on an implicit graph
+
+Use a DFS because BFS takes up too much space
+
+Pseudocode
+
+BacktrackDFS(A, k):
+  if A is a solution, report it.
+
+  else
+    # increment k
+    k = k + 1
+
+    #optional
+    do some computation on S (solution)
+
+    while Sk != 0:

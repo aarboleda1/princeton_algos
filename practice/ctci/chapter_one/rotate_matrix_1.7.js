@@ -1,4 +1,3 @@
-
 /*
 Rotate Matrix 1.7
 Given an image represented by an N x N Matrix, where each pixel in the image

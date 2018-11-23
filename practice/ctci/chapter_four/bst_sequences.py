@@ -10,8 +10,8 @@ children.
 
 1. Create a function allSequences which generates all possible lists
  - Base case where root is null, return [[]]
- - Otherwise, recurisvely call allSequences and get the left and right sequences
- of left and right subtree
+ - Otherwise, recurisvely call allSequences and get the left and right
+ sequences of left and right subtree
 2. weaveLists Function
 e.g.
     arr1: [1, 2, 3]
@@ -26,11 +26,13 @@ When arr1 or arr2 are empty, add the remainder to prefix arr and store result
 from typing import List, Any, Optional
 import copy
 
+
 class Node:
     def __init__(self, val: Optional[int] = None) -> None:
         self.left = None
         self.right = None
         self.val = val
+
 
 class Tree:
     def __init__(self):
@@ -57,10 +59,11 @@ class Tree:
             else:
                 node.right = Node(val)
 
+
 def allSequences(node: Optional[Node]) -> List[Any]:
     # this is the final list of lists we want to output
     results: List[List[Any]] = []
-    # termination, append [] so that results will not be empty\
+    # termination, append [] so that results will not be empty
     # and the nested for loop will still execute since
     # leftSeq == [[]] and rightSeq == [[]] in termination
     if not node:
@@ -72,8 +75,6 @@ def allSequences(node: Optional[Node]) -> List[Any]:
     prefix.append(node.val)
 
     # then represent the left and right subtrees
-    # leftSeq = allSequences(node.left)
-    # rightSeq = allSequences(node.right)
     leftSeq = [getSequences(node.left)]
     rightSeq = [getSequences(node.right)]
     # nested for loop and call weaveLists on each list in
