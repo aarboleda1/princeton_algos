@@ -1,32 +1,46 @@
+import unittest
 """Generate all permutations of a set
+
+
+
+
+
+
+
+Solution:
+Use backtracking
+
+INPUT: "ABC"
+OUTPUT: ['ABC', 'ACB', 'BAC', 'BCA', 'CBA', 'CAB']
+
 """
 
-finished = False
 
-import unittest
-def all_perms_recur(alist, k, n, candidates):
-    if is_a_solution(alist, k, n):
-        process_solution(alist, k, candidates)
+def to_string(alist):
+    return ''.join(alist)
+
+
+def permute(alist, left, right, result):
+    if left == right:  # a check if is a solution
+        return to_string(alist) # process the solution
     else:
-        k += 1
-        construct_candidates()
-        for i in range(len(candidates)):
-            alist[k] = candidates[i]
-            make_move(alist, k, candidates)
-            unmake_move(alist, k, candidates)
-            if finished:
-                return
-
-def construct_candidates():
-    pass
-def all_perms(alist):
-    return all_perms_recur(alist, 0, len(alist), [])
-def process_solution(alist, k, input):
-    pass
-def is_a_solution(k, n): # bool
-    return k == n
+        for i in range(left, right + 1):
+            # make move
+            alist[left], alist[i] = alist[i], alist[left]
+            chars = permute(alist, left + 1, right, result)
+            if chars is not None:
+                result.append(permute(alist, left + 1, right, result))
+            # unmake move/backtrack
+            alist[i], alist[left] = alist[left], alist[i]
 
 
 class AllPermsTestCase(unittest.TestCase):
     def test_all_perms(self):
-        pass
+        data = ["A", "B", "C"]
+        result = []
+        permute(data, 0, len(data) - 1, result)
+        self.assertEquals(len(result), 6)
+        print(result)
+
+if __name__ == "__main__":
+    unittest.main()

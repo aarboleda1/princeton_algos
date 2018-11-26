@@ -10,7 +10,37 @@ print it or count it. If not, check whether the partial solution is potentially
 extendible to some complete solution
 - Basically a DFS on an implicit graph
 
-Use a DFS because BFS takes up too much space
+
+Backtracking Algorithm Subroutines: Consists of 5
+1. is_a_solution(a: Array, k: int, input: Any) -> bool:
+"""
+Tests whether first k elements from vector a from complete solution for the
+given problem.
+"""
+
+2. construct_candidates(a: array, k: int, input: Any, c: List[Any], ncandidates: int) -> None:
+"""
+Fills an array c, with the complete set of possible candidates for the kth position of
+a, given the contents of the first k - 1 positions. The number of candidates returned
+in this array is denoted by ncandidates.
+"""
+
+3. process_solution(a: List[Any], k: int, input: Any) ->
+"""
+This routine prints, counts or however processes a complete solution once it's
+constructed
+"""
+
+4. make_move(a, k, input) AND unmake_move(a, k, input)
+"""
+These routines enable us to modify a data structure in response to the latest move,
+as well as clean up this data structure if we decide to take back the move. This
+data structure could be rebuilt from scratch from the solution vector a as needed,
+but this is inefficient when each move involves incremental changes that can easily
+be undone
+"""
+
+
 
 Pseudocode
 
