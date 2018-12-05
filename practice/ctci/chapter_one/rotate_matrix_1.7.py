@@ -16,16 +16,16 @@ For each layer in the matrix, swap each pixel one by one
 """
 
 
-def rotate_matrix(matrix):
-    m_len = len(matrix)
-    layers = int(len(matrix) / 2)
-    for layer in range(0, layers):
-        end = m_len - layer - 1
+def rotate_matrix_(matrix):
+    layers = len(matrix) // 2
+    for layer in range(layers):
+        end = len(matrix) - layer - 1
         start = layer
         for j in range(start, end):
             offset = j - start
             top = matrix[start][j]
-            # bottom left to top
+            # bottom left -> top
+            print(matrix[end - offset])
             matrix[start][j] = matrix[end - offset][start]
             # bottom right to bottom left
             matrix[end - offset][j] = matrix[end][end - offset]
@@ -37,6 +37,29 @@ def rotate_matrix(matrix):
 
     return matrix
 
+def rotate_matrix(matrix):
+    '''rotates a matrix 90 degrees clockwise'''
+    n = len(matrix)
+    for layer in range(n // 2):
+        first, last = layer, n - layer - 1
+        for i in range(first, last):
+            # save top
+            top = matrix[layer][i]
+            print(matrix[-i - 1])
+            # left -> top
+            matrix[layer][i] = matrix[-i - 1][layer]
+
+            # bottom -> left
+            matrix[-i - 1][layer] = matrix[-layer - 1][-i - 1]
+
+            # right -> bottom
+            matrix[-layer - 1][-i - 1] = matrix[i][- layer - 1]
+
+            # top -> right
+            matrix[i][- layer - 1] = top
+    return matrix
+
+
 class Test(unittest.TestCase):
     """Test Cases"""
 
@@ -44,7 +67,7 @@ class Test(unittest.TestCase):
 
     def test_matrix(self):
         data = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-        rotate_matrix(data)
+        rotate_matrix_(data)
         self.assertListEqual(data[0], [7, 4, 1])
         self.assertListEqual(data[1], [8, 5, 2])
         self.assertListEqual(data[2], [9, 6, 3])

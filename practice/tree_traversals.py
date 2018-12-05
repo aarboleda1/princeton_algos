@@ -103,7 +103,7 @@ def post_order_list(root: Optional[Node]) -> List[int]:
 
     res = post_order_list(root.left)
     res += post_order_list(root.right)
-    res += [root.val]
+    res += [root.val]  # noqa
     return res
 
 def post_order_list_p(root: Optional[Node]) -> None:

@@ -18,10 +18,12 @@ Google Interview:
 - Trie
 
 # CTCI - Needs Review
+- mergeTwoLists - do this recursively and iteratively
 - firstUniqueChar Leetcode
 - Ch 4 CTCI First Common Ancestor
 - Iterator of Iterators!!! This is a good one
-
+- https://leetcode.com/problems/fruit-into-baskets/
+- https://leetcode.com/problems/reverse-linked-list
 
 # CTCI - Good. Review on a weekly Basis
 - 11/9 Unique Email Addresses https://leetcode.com/problems/unique-email-addresses/
