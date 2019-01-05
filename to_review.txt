@@ -18,14 +18,15 @@ Google Interview:
 - Trie
 
 # CTCI - Needs Review
-- mergeTwoLists - do this recursively and iteratively
+- mergeTwoLists - do this recursively and iteratively https://leetcode.com/problems/merge-two-sorted-lists/
 - firstUniqueChar Leetcode
 - Ch 4 CTCI First Common Ancestor
 - Iterator of Iterators!!! This is a good one
 - https://leetcode.com/problems/fruit-into-baskets/
-- https://leetcode.com/problems/reverse-linked-list
 
 # CTCI - Good. Review on a weekly Basis
+- https://leetcode.com/problems/reverse-linked-list
+- https://leetcode.com/articles/copy-list-with-random-pointer/
 - 11/9 Unique Email Addresses https://leetcode.com/problems/unique-email-addresses/
 - 11/9 Find Anagram Mappings https://leetcode.com/problems/find-anagram-mappings/
 - 11/5 Chapter 4 Check Subtrees 4.10
@@ -33,3 +34,6 @@ Google Interview:
 - Check balanced
 - 11/5 Palindrome (LinkedList) 2.6
 - 11/5 Intersection (LinkedList) 2.7
+
+
+https://our.internmc.facebook.com/intern/wiki/Users/itaiski/Interview_questions/
